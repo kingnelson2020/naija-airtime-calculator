@@ -24,7 +24,7 @@ def fetch_network_rate(network):
         
         with open(json_path, 'r') as file:
             data = json.load(file)
-        rate = data[network]['rate']
+        rate = float(data[network]['rate'])
         return rate
     except KeyError:
         return None
@@ -43,7 +43,7 @@ def calculate_sms_count(airtime, network_rate):
         Number of SMS messages that can be sent
     """
     number_of_sms = airtime // network_rate
-    return number_of_sms
+    return int(number_of_sms)
     
 def calculate_airtime_cost(sms_count, network_rate):
      """ 
