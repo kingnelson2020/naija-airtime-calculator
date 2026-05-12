@@ -1,0 +1,15 @@
+{
+    "mtn": {
+        "rate": 4
+    },
+    "airtel": {
+        "rate": 4
+    },
+    "glo": {
+        "rate": 3
+    },
+    "9mobile": {
+        "rate": 3
+    },
+    "last_sync_date": "2026-05-10"
+}

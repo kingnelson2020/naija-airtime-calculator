@@ -1,6 +1,27 @@
 """
 This module contains functions to calculate the number of SMS messages that can be sent with a given amount of airtime and the total cost of sending those messages based on the network rate.
 """
+import os
+import json
+
+def fetch_network_rate(network):
+    """
+    Fetch the network rate for the given network
+
+    Args:
+        network: name of the network
+    Returns:
+        The cost per SMS in naira for the given network
+    """
+    base_dir = os.path.dirname(__file__)
+    json_path = os.path.join(base_dir, 'rate.json')
+    
+    with open(json_path, 'r') as file:
+        data = json.load(file)
+    rate = data[network]['rate']
+    return rate
+
+        
 
 def calculate_sms_count(airtime, network_rate):
     """ 
