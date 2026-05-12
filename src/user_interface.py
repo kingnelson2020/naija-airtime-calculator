@@ -18,6 +18,24 @@ def get_airtime_amount():
         except ValueError:
             print('Invalid input. Please enter a valid number for airtime amount.')
             continue
+        
+def get_sms_count():
+    """ 
+    Function to get number of sms from the user. It validates the input to ensure it's a positive number.
+    Returns:
+        A positive number representing the sms count.
+    """
+    while True:
+        try:
+            number_of_messages = int(input('Enter the number of messages: '))
+            if number_of_messages <= 0:
+                print('Number of messages must be greater than zero. Please enter a valid number.')
+                continue
+            return number_of_messages
+            
+        except ValueError:
+            print('Invalid, please enter a valid number for SMS.')
+            continue
 
 def get_network_choice():
     """ Function to get network choice from the user. It validates the input to ensure it's a non-empty string.
