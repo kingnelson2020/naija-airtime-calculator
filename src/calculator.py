@@ -11,15 +11,22 @@ def fetch_network_rate(network):
     Args:
         network: name of the network
     Returns:
-        The cost per SMS in naira for the given network
+        If network is found:
+            The cost per SMS in naira for the given network
+        If network is not found:
+            None
     """
-    base_dir = os.path.dirname(__file__)
-    json_path = os.path.join(base_dir, 'rate.json')
-    
-    with open(json_path, 'r') as file:
-        data = json.load(file)
-    rate = data[network]['rate']
-    return rate
+    network = network.lower()
+    try:
+        base_dir = os.path.dirname(__file__)
+        json_path = os.path.join(base_dir, 'rate.json')
+        
+        with open(json_path, 'r') as file:
+            data = json.load(file)
+        rate = data[network]['rate']
+        return rate
+    except KeyError:
+        return None
 
         
 
